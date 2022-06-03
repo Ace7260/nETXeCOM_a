@@ -205,7 +205,7 @@
                            </font>
                         </Label>
                         <Pane prefHeight="60.0" prefWidth="316.0" HBox.hgrow="ALWAYS" />
-                        <Label prefHeight="30.0" prefWidth="106.0" text="My Account" textFill="#252424">
+                        <Label prefHeight="30.0" prefWidth="96.0" text="My Account" textFill="#252424">
                            <font>
                               <Font name="Cambria" size="18.0" />
                            </font>
@@ -217,6 +217,7 @@
                         </ImageView>
                      </children>
                   </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
                </children>
             </VBox>
          </center>
