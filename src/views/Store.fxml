@@ -5,22 +5,24 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StoreController">
    <children>
       <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -101,11 +103,11 @@
                   </HBox>
                   <Pane prefHeight="0.0" prefWidth="283.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox alignment="CENTER" layoutX="26.0" layoutY="51.0" prefHeight="457.0" prefWidth="288.0" styleClass="chosen-fruit-card">
+                        <VBox fx:id="chosenFruitCard" alignment="CENTER" layoutX="26.0" layoutY="51.0" prefHeight="457.0" prefWidth="288.0" styleClass="chosen-fruit-card">
                            <children>
                               <HBox prefHeight="43.0" prefWidth="240.0">
                                  <children>
-                                    <Label prefHeight="30.0" prefWidth="149.0" text="Peach" textFill="WHITE">
+                                    <Label fx:id="fruitNameLabel" prefHeight="30.0" prefWidth="149.0" text="Peach" textFill="WHITE">
                                        <font>
                                           <Font name="Cambria" size="24.0" />
                                        </font>
@@ -113,7 +115,7 @@
                                           <Insets left="20.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <Label prefHeight="30.0" prefWidth="106.0" text="\$25.99" textFill="WHITE">
+                                    <Label fx:id="fruitPriceLabel" prefHeight="30.0" prefWidth="106.0" text="\$25.99" textFill="WHITE">
                                        <font>
                                           <Font name="Cambria" size="24.0" />
                                        </font>
@@ -123,7 +125,7 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </HBox>
-                              <ImageView fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="fruitimg" fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/peach.png" />
                                  </image>
@@ -215,6 +217,82 @@
                               <Image url="@../images/ic_cart.png" />
                            </image>
                         </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="48.0" prefWidth="96.0" />
+                        <VBox prefHeight="105.0" prefWidth="375.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="105.0" prefWidth="375.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="239.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="212.0" text="Free delivery" textFill="#252424">
+                                             <font>
+                                                <Font name="Cambria" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="18.0" prefWidth="213.0" text="Over $20 order" textFill="#252424">
+                                             <font>
+                                                <Font name="Cambria" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="49.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/ic_delivery.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Pane prefHeight="84.0" prefWidth="96.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="105.0" prefWidth="375.0" styleClass="shopping-online-card" stylesheets="@../values/style.css">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="100.0" prefWidth="239.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="223.0" text="Shopping online" textFill="#252424">
+                                       <font>
+                                          <Font name="Cambria" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="7.0" prefWidth="223.0" text="get your shopping in same day" textFill="#252424">
+                                       <font>
+                                          <Font name="Cambria" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="49.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/ic_stopwatch.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="100.0" prefWidth="107.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fx:id="scroll" prefHeight="570.0" prefWidth="785.0" styleClass="transparent" stylesheets="@../values/style.css">
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="4.0" prefWidth="9.0">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </ScrollPane>
                      </children>
                   </HBox>
                </children>

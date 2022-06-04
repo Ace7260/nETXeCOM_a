@@ -27,3 +27,14 @@
 .add-btn{
 -fx-background-color:#FFFFFF;
 -fx-background-radius:100;}
+
+.free-delivery-card{
+-fx-background-color:#D3D3D3;
+-fx-background-radius:30;}
+.shopping-online-card{
+-fx-background-color:#BAEAC3;
+-fx-background-radius:30;}
+
+.fruit-item{
+-fx-background-color:#FFFFFF;
+-fx-background-radius:30;}

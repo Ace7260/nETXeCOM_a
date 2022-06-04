@@ -7,14 +7,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
+   public  static final String CURRENCY="$";
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../views/Store.fxml"));
         primaryStage.setTitle("Ace1 Store");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMinWidth(1100);
-        primaryStage.setMinHeight(650);
+        primaryStage.setMinHeight(750);
         //primaryStage.setResizable(false);
        // 20:00
         primaryStage.show();
